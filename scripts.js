@@ -18,3 +18,20 @@ function lerConteudoArquivo(arquivo) {
         leitor.readAsDataURL(arquivo)
     })
 }
+
+const imagemPrincipal = document.querySelector(".main-imagem");
+const nomeImagem = document.querySelector(".container-imagem-nome p")
+
+inputUpload.addEventListener("change", async (evento) => {
+    const arquivo = evento.target.files[0];
+
+    if (arquivo) {
+        try {
+          const conteudoArquivo = await lerConteudoArquivo(arquivo);
+          imagemPrincipal.src = conteudoArquivo.url;
+          nomeImagem.textContent = conteudoArquivo.name;
+        } catch (erro) {
+            console.log("Erro na leitura do arquivo!")
+        } 
+    }
+} )
