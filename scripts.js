@@ -58,9 +58,9 @@ const tagDisponiveis = [
 
 async function verificarTag(tagTexto) {
   return new Promise((resolve) => {
-    setTimeout(1000, () => {
+    setTimeout(() => {
       resolve(tagDisponiveis.includes(tagTexto));
-    });
+    }, 1000);
   });
 }
 
